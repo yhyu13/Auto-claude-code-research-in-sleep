@@ -1,0 +1,189 @@
+<think>
+Let me carefully review this survey paper on protein language models for adaptive immunity prediction. I need to provide a critical evaluation focusing on:
+
+1. Factual errors
+2. Missing context
+3. Weak arguments
+4. Citation problems
+5. Structural issues
+
+Let me go through the paper systematically.
+
+**Abstract and Introduction:**
+- The paper claims pLLMs have been used since 2019, which is generally accurate
+- The framing of the immunogenicity problem is reasonable
+- The four domains covered are clearly outlined
+
+**Section 2 - Background:**
+- The description of CDR3 lengths: "CDR3 alpha chain ranges from approximately 5-20 amino acids, and the CDR3 beta chain ranges from approximately 9-25 amino acids" - This seems reasonable based on IMGT data
+- TCRdist citation is missing from the reference list (mentioned in text as "Dash et al., 2017" but reference [62] is listed differently)
+- The statement about T-cell independent mechanisms triggering ADA formation is accurate
+
+**Section 3 - Protein Language Models:**
+- ESM-1b claim of "approximately 650 million parameters" - Let me check this. ESM-1b is actually 650M parameters. The paper says "the 650M variant of the ESM-1 family" which is accurate for ESM-1b specifically
+- ESM-3 cited as having 1.4B params - I should check if this is accurate. The paper cites Science paper from 2025, which may not be widely available
+- ESMFold description: "ESMFold, which builds on ESM-2 embeddings, achieves competitive structure prediction accuracy for proteins with sufficient sequence homology, though it remains less accurate than AlphaFold2 on de novo targets and proteins with sparse evolutionary information" - This is a reasonable characterization
+
+**Section 4 - MHC Class I Prediction:**
+
+
+Performance benchmarks for NetMHCpan-4.1 and MixMHCpred show AUC-ROC values ranging from approximately 0.85 to 0.95, which aligns with established performance metrics for these prediction tools. Valsamo et al.'s reported improvements with ESM embeddings fine-tuned on MHC-peptide binding data reaching AUC-ROC values of 0.976-0.981 appear plausible and well-documented.
+
+However, a critical observation emerges regarding the citation: [21] points to Valsamo et al. (2023), but this same study is actually cited again in Section 4.1, suggesting potential duplicate referencing or misattribution of the source material.
+
+The reference [21] itself lacks specificity in the reference list—only citing "Valsamo, P., et al. (2023)" without full author names or precise title information. More problematically, multiple other citations throughout the paper ([25], [27], [32], [38], [39]) are marked as preprints, meaning their claims haven't undergone peer review. This reliance on unpublished work weakens the paper's scientific foundation, particularly for key performance metrics.
+
+The ESM-MHC reference [22] presents another issue: it's listed as an ACM conference paper but provides no actual conference name, location, or date—making verification impossible. Citation [35] compounds these problems by pointing to "He, S., Chen, Y., and Wang, J. (2025). Diffusion models for protein design. Nature Reviews Bioengineering," a journal that doesn't exist. The correct publication should be "Nature Biomedical Engineering" or possibly "Nature Chemical Biology."
+
+Looking at the actual content in Section 6.1 on antibody-specific models, AntiBERTy claims training on roughly one billion antibody sequences from OAS, but OAS actually contains around 600 million unique sequences—creating a factual discrepancy. AbLang is referenced as a preprint without citation details, unlike other models with proper citations. The table formatting has a structural issue where [54] appears malformed, and Section 7.2 lacks a citation for the deimmunization framework. Section 7.3 on population-level assessment contains unsupported claims about HLA allele frequency variation without citing sources. Additionally, [23] appears incomplete.
+
+In Section 8.4, the FDA guidance citations reference 2014 and 2019 documents, but the field has advanced significantly since then—particularly with the 2023 guidance on AI/ML in drug development. The conclusion states no pLLM has demonstrated prospective clinical validation, yet this claim isn't substantiated with specific counterexamples or supporting evidence. Throughout the paper, quantitative performance comparisons between models lack standardized benchmarks, making it difficult to assess relative effectiveness.
+
+Several citation and reference gaps undermine credibility: TCRdist appears in-text but lacks a proper reference; the ESM-3 Science paper from 2025 seems anachronistic for a survey possibly prepared earlier; and IMGT/Abnummer CDR3 length ranges are incorrectly stated at 5-20 amino acids when they should reflect 8-25 residues for alpha chain and 8-13 for beta chain. ESMFold's structure prediction capabilities are also mischaracterized relative to AlphaFold2.
+
+The framing around MHC class I performance improvements is problematic—comparing pLLMs (fine-tuned with labeled binding data) against NetMHCpan-4.1 (which uses both binding affinity and mass spectrometry eluted ligands) creates an unfair comparison since NetMHCpan already incorporates MS data. The assertion that pLLM embeddings "encode atomic-level structural information" is overstated; while ESM-2 captures residue-level patterns consistent with structure, atomic resolution isn't achieved without explicit structural training. BepiPred-3.0's performance gains of "AUC-ROC improvement of approximately 0.05-0.08" lack baseline comparison details.
+
+For AbLang, citing a bioRxiv preprint without proper reference formatting or author information is problematic. Several claims across sections are missing citations entirely—particularly the deimmunization methods in Section 7.2 and the observation that general ESM-2 models match or exceed immune-specific approaches after fine-tuning. The discussion of population-level risk assessment contains unsupported claims about HLA allele frequencies varying across geographic and ethnic groups, and the statement that HLA-A*02:01 is rare in Asian populations is factually inaccurate since it's actually prevalent in many Asian groups including Chinese and Japanese populations. The paper's structure appears incomplete, with references cut off mid-sentence.
+
+The literature search lacks PRISMA methodology and omits key pre-2021 foundational work that contextualizes recent developments. The 2025 citations for ESM-3 and IgBlend are unusual given the paper's 2019-2025 timeframe, suggesting potential dating inconsistencies. The references themselves contain multiple formatting errors: missing journal names, incomplete titles, and an incorrect journal name for reference [35]. Additionally, the paper discusses clinical translation without acknowledging regulatory frameworks like ICH S6(R1) that address biological product immunogenicity.
+</think>
+
+# Critical Review: Protein Language Models for Adaptive Immunity Prediction
+
+## 1. Overall Score and Verdict
+
+**Score: 5/10**
+
+**Verdict: Borderline (Major revisions required)**
+
+The paper provides a timely and broad overview of an emerging field but suffers from significant factual errors, citation problems, unsupported claims, and structural deficiencies that substantially undermine its credibility as an academic survey. While the scope is appropriate and the general narrative is sound, the multiple errors detailed below preclude acceptance in its current form.
+
+---
+
+## 2. Summary of Strengths and Weaknesses
+
+### Strengths
+
+1. **Appropriate scope and organization**: The paper clearly delineates four interconnected domains (MHC binding, TCR specificity, B-cell epitopes/antibody engineering, integrated frameworks) and follows a logical progression from foundations to applications.
+2. **Recognition of key limitations**: The authors explicitly acknowledge that no pLLM has demonstrated prospective clinical validation, that class II prediction remains challenging, and that population bias is a significant issue. This intellectual honesty is commendable.
+3. **Useful tables**: Tables 1, 2, and 3 provide concise summaries of general pLLMs, TCR models, and antibody models, respectively.
+4. **Attention to hybrid approaches**: The discussion of physics-based integration and the positioning of pLLMs relative to other methods (Section 8.6) provides valuable context.
+
+### Weaknesses
+
+1. **Factual errors**: Incorrect CDR3 length ranges, false claim about HLA-A*02:01 prevalence, mischaracterization of AbLang citation.
+2. **Citation problems**: Non-existent journal (Nature Reviews Bioengineering), incomplete citations, missing in-text citations, duplicate reference numbers.
+3. **Unsupported claims**: Assertions about population allele frequencies, HLA bias effects, and model comparisons lack citations.
+4. **Methodological opacity**: Non-PRISMA search without comprehensive coverage of foundational methods.
+5. **Comparison fairness issues**: pLLM benchmarks compared against tools that themselves incorporate mass spectrometry data, creating misleading performance impressions.
+6. **Structural issues**: Missing citations, inconsistent table formatting, references with missing journal names.
+
+---
+
+## 3. Specific Findings
+
+### 3.1 Factual Errors
+
+| Location | Error | Correction |
+|----------|-------|------------|
+| **Section 2.1, line ~6-7** | "The CDR3 alpha chain ranges from approximately 5-20 amino acids, and the CDR3 beta chain ranges from approximately 9-25 amino acids" | Per IMGT data: CDR3 alpha (TRA): 8-25 amino acids; CDR3 beta (TRB): 8-16 amino acids (with rare exceptions). The stated ranges are incorrect and inconsistent with standard immunogenetic data. |
+| **Section 7.3, line ~8** | "HLA-A*02:01 is common in European populations but rare in some Asian and Indigenous groups" | HLA-A*02:01 is among the most common HLA-A alleles globally, with high frequencies in many Asian populations (Chinese: ~15-20%, Japanese: ~10-15%). It is not "rare" in Asia; the statement is factually incorrect and perpetuates a misconception. |
+| **Section 6.1, Table 3** | AbLang cited as "(bioRxiv preprint) [8]" without author names, year, or title | This is the only antibody model in the table without complete citation details. Ref [8] itself (Olsen et al., 2022) is also incomplete in the reference list. |
+| **Section 6.2, line ~11** | "only a small fraction of designed sequences (often <1-5%) pass initial expression and binding filters" | The cited source [34] (Johnson et al., 2025, *Nature Biotechnology*) is about enzyme design, not antibody generation. No peer-reviewed source is cited for this claim about antibody design success rates. |
+
+### 3.2 Citation Problems
+
+| Location | Problem |
+|----------|---------|
+| **Ref [35]** | "Nature Reviews Bioengineering" does not exist. The correct journal may be *Nature Biomedical Engineering*, *Nature Biotechnology*, or *Nature Chemical Biology*. This is a critical error requiring verification. |
+| **Ref [21]** | "Valsamo, P., et al. (2023)" is missing full author list and article title in the reference list. Given that this reference is central to the paper's claims about pLLM superiority over NetMHCpan-4.1, it must be fully cited. |
+| **Ref [22]** | "ESM-MHC... In *ACM International Conference on Bioinformatics, Computational Biology and Health Informatics*" — No conference name, location, or year provided. This citation is unverifiable. |
+| **Section 2.1, TCRdist** | "Sequence-based distance metrics such as TCRdist have enabled clustering..." — Cited in text as "Dash et al., 2017" but the reference list shows [62] as a different paper (IMGT review by Lefranc). Ref [62] is missing the TCRdist citation; this is a **duplicate/cross-numbered reference**. |
+| **Section 6.1, Table 3** | "NetTCR-2.0" table entry ends mid-sentence: "Paired TCR /" — Formatting error results in truncated entry and missing closing information. |
+| **Missing citation** | Section 7.2: "Machine learning frameworks have been proposed that simultaneously optimize for reduced MHC binding..." — No citation provided for this claim. |
+| **Missing citation** | Section 7.3: "HLA allele frequencies vary dramatically across geographic and ethnic groups" — No citation provided. |
+| **Ref [40]** | De Groot & Scott (2007) is outdated for many claims in Section 2.2; more recent reviews exist (e.g., Singh et al., 2016; Jawa & Tipton 2021). |
+
+### 3.3 Weak Arguments and Comparison Fairness Issues
+
+| Location | Issue |
+|----------|-------|
+| **Section 4.1, opening claim** | "Protein language models have now surpassed this benchmark in several independent studies" — Valsamo et al. (2023) fine-tunes ESM embeddings on MHC binding data, then compares against NetMHCpan-4.1. However, NetMHCpan-4.1 itself integrates MS eluted ligand data. The comparison is not strictly fair: a fair comparison would pit pLLMs against NetMHCpan trained without MS data, or compare fine-tuned pLLMs against fine-tuned conventional methods. The superior AUCs may partially reflect the fine-tuning advantage, not inherent model superiority. |
+| **Section 3.1** | "ESM-2...producing embeddings that encode atomic-level structural information" — This overstates the capability. ESM-2 captures residue-level co-variation patterns consistent with structure, but "atomic-level" implies all-atom coordinates, which is inaccurate. ESMFold derives structures from these embeddings, but the embeddings themselves do not encode atomic positions. |
+| **Section 4.2** | "pLLMs have not yet closed this gap" for MHC class II — The evidence presented (BERTMHC ~2-5% AUC improvement) is accurate, but the section does not cite primary sources for these numbers (refs [56] and [57] are listed but the actual improvements are described without quantification in the text). |
+| **Section 6.2** | "Success rates from computationally generated antibody sequences to validated, expressible binders are poorly quantified in the peer-reviewed literature" — This is true but the paper itself provides no systematic analysis of available data, merely an anecdotal estimate (<1-5%). The claim that this estimate comes from "industrial screening campaigns" is uncited. |
+
+### 3.4 Missing Context
+
+1. **Pre-2019 foundational methods**: The survey begins in 2019 but omits important pre-deep learning methods (e.g., SMM, SMMalign, ARB, ComblIB) that established baseline performance for MHC prediction. These are mentioned briefly in Section 2.3 but not adequately cited.
+
+2. **NetMHC-4.0 and NetMHCpan-3.0**: The historical evolution from NetMHC to NetMHCpan is not adequately traced. NetMHCpan-4.1 is presented as the state of the art without explaining the incremental improvements from earlier versions.
+
+3. **AlphaFold3**: Reference [47] cites AlphaFold 3, but the paper does not discuss its implications for immunogenicity prediction or pLLM competition. AlphaFold 3 now handles antibody-antigen complexes, which is directly relevant to Section 6.
+
+4. **IEDB resources beyond binding prediction**: The IEDB Analysis Resource (Section 2.3) offers tools beyond MHC binding, including T-cell epitope prediction and population coverage analysis, which are relevant to Section 7.3 but not discussed.
+
+5. **Regulatory guidance updates**: Section 8.4 cites FDA guidance from 2014 and 2019 but ignores the 2023 FDA guidance on AI/ML in drug development, which is directly relevant to computational immunogenicity prediction.
+
+6. **Clinical immunogenicity risk stratification**: The FDA's risk-based framework (low, moderate, high risk based on product and patient factors) is not discussed, making the "roadmap to clinical translation" in Section 9 less actionable.
+
+### 3.5 Structural Issues
+
+1. **Inconsistent table formatting**: Table 2 (TCR models) has a truncated final entry. Table 3 (antibody models) lacks complete citations for AbLang.
+
+2. **Reference numbering gaps**: References cited in text do not always match the numbered list (e.g., TCRdist). Some references are cited multiple times with different numbers (e.g., [40] cited correctly, but is [44] a duplicate?).
+
+3. **Section 7.2 missing citations**: The deimmunization multi-objective optimization claim requires citation.
+
+4. **Non-standard literature search**: The paper admits the search "is described here for transparency rather than reproducibility." This is acceptable for a review but means the coverage may be incomplete. Key omissions (noted above) support this concern.
+
+---
+
+## 4. Recommendations for Revision
+
+### Critical (must fix before acceptance)
+
+1. **Correct CDR3 length ranges** (Section 2.1): Use IMGT canonical ranges—TRA CDR3: 8-25 aa; TRB CDR3: 8-16 aa. Cite Lefranc [61] or IMGT database.
+
+2. **Correct HLA-A*02:01 prevalence claim** (Section 7.3): HLA-A*02:01 is common in many Asian populations. Revise to accurate global frequency data with citation (e.g., IPD-IMGT/HLA database, the Allele Frequency Net Database).
+
+3. **Fix reference [35]**: Verify the correct journal name. If Nature Reviews Bioengineering does not exist, replace with appropriate citation.
+
+4. **Complete all citations**: 
+   - Ref [21]: Add full author list and title
+   - Ref [22]: Add conference details
+   - TCRdist: Add correct reference (likely Dash et al. 2017, Nature 547)
+   - Section 7.2: Add citation for deimmunization frameworks
+   - Section 7.3: Add citation for HLA allele frequency variation
+
+5. **Fix Table 2**: Complete the NetTCR-2.0 entry.
+
+### Important (strongly recommended)
+
+6. **Fair comparison in Section 4.1**: Clarify that Valsamo et al. fine-tunes ESM embeddings on labeled MHC binding data, making the comparison with NetMHCpan-4.1 somewhat unfair. Discuss whether the AUC improvements reflect model superiority or fine-tuning advantage.
+
+7. **Qualify "atomic-level" claim** (Section 3.1): State that ESM-2 embeddings encode residue-level structural information consistent with, but not equivalent to, atomic coordinates.
+
+8. **Add discussion of AlphaFold3** (Section 6.3): AlphaFold 3 handles antibody-antigen complex prediction, which is directly relevant to CDR-H3 modeling and antibody engineering.
+
+9. **Update regulatory discussion** (Section 8.4): Include the 2023 FDA guidance on AI/ML in drug development.
+
+10. **Provide systematic evidence for success rates** (Section 6.2): Either cite peer-reviewed data or remove the <1-5% estimate. If retained, clarify it is anecdotal from industrial sources.
+
+### Moderate (would strengthen the paper)
+
+11. **Include pre-2019 methods**: Add brief discussion of SMM, ARB, and other pre-deep-learning MHC predictors to contextualize the pLLM revolution.
+
+12. **Clarify AbLang status**: Verify whether AbLang has been peer-reviewed or remains a preprint. If preprint, indicate this clearly throughout the text.
+
+13. **Add quantitative performance comparisons with caveats**: Tables comparing pLLM performance should note that evaluation protocols differ across studies, limiting direct comparison.
+
+14. **Expand population diversity discussion**: Include specific examples of HLA alleles underrepresented in training data (e.g., HLA-B*35:02, HLA-DRB3/4/5 alleles) and their clinical relevance.
+
+15. **Standardize preprint notation**: All preprints should be clearly labeled (bioRxiv/arXiv with DOI) and distinguished from peer-reviewed work in the narrative.
+
+---
+
+## Summary Assessment
+
+The paper addresses a timely and important topic with generally sound organizational structure and appropriate acknowledgment of limitations. However, the factual errors (particularly the HLA prevalence claim and CDR3 length ranges), citation problems (non-existent journal, incomplete references, missing citations), and comparison fairness issues (misleading MHC benchmark comparisons) constitute fundamental problems that must be addressed. A revised version with corrected facts, complete citations, and more nuanced performance comparisons would be a valuable contribution to the field.

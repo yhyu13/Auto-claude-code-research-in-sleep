@@ -1,0 +1,310 @@
+<think>
+This is a request to provide a comprehensive academic peer review of a survey paper on autonomous weapons and AI in military applications. The user wants me to play an adversarial reviewer role, providing detailed criticism across multiple dimensions. Let me analyze this paper systematically.
+
+The paper covers:
+1. Introduction to autonomous weapons
+2. Conceptual framework for understanding autonomy levels
+3. Current landscape of autonomous weapons programs (US, China, Russia/Ukraine, Israel, Europe)
+4. Governance challenges
+5. Strategic stability and accountability implications
+6. Conclusions and policy recommendations
+
+Let me work through the evaluation criteria:
+
+**1. Factual accuracy and source credibility**
+
+Issues I see:
+- Reference [8] appears to be from IAI (Israel Aerospace Industries) itself - this is manufacturer self-reporting, not independent verification. The claim that Harpy is "fully autonomous" needs independent corroboration.
+- Reference [9] is listed as "Drone Strike. IAI Harpy Specifications, 2023" - this is an extremely weak source. "Drone Strike" appears to be a blog or non-peer-reviewed source. Using manufacturer specs as evidence for operational autonomy claims is problematic.
+- The claim that "The Harpy has been exported to China" is highly questionable and potentially confused - Israel selling weapons systems to China would be a significant geopolitical event that would have drawn considerable attention.
+- The Lancet/KUB loitering munitions section lacks citations for specific operational claims
+- Reference [31] cites ICRC 2023 Position Paper but earlier in the text there seems to be confusion about dates
+- Reference [10] cites "Brennan Center. The Business of Military AI, 2026" - this appears to be a future date, which is impossible for a publication. This is a significant error.
+- Many claims lack specific citations or rely on single sources
+- The claim about "swarm of small Israeli drones located, identified, and attacked Hamas militants in May 2021" in Section 3.3 references [1] (UN Panel of Experts on Libya) - the connection to this specific claim is unclear
+
+
+- The citation structure is inconsistent and often lacks specificity for key operational claims
+
+**2. Analytical rigor**
+
+The paper presents taxonomy of autonomy levels and discusses the trilemma between military effectiveness, accountability, and strategic stability. However, there are several analytical weaknesses: the trilemma framework lacks sufficient theoretical grounding or explanation of why these represent genuine trade-offs. China's AI policy claims are presented without adequate evidence or acknowledgment of analytical uncertainty. The claim about AI systems performing at "95% accuracy in laboratory settings...degrading to 60-70%" is presented without specific citations to the academic literature. Additionally, the paper conflates drone proliferation concerns with actual autonomous weapons systems, treating them as equivalent threats when they require different analytical frameworks.
+
+**3. Balance and fairness regarding China claims**
+
+The section on China contains significant analytical gaps and uncritical acceptance of certain claims. The statement about China's intelligentized warfare doctrine appears to be accepted without sufficient interrogation of what this actually means operationally or strategically. The text conflates policy aspirations with actual military capabilities, accepting China's doctrinal language without questioning whether these goals translate into real-world military advantages.
+
+The CSET spending estimates are presented with "significant methodological uncertainty" acknowledged, but this caveat is vague about the actual range of uncertainty. More problematically, the paper suggests China exported weapons to multiple countries, which requires stronger sourcing and verification than appears to be provided. The "five-criteria definition" of LAWS is presented without sufficient analysis of its strategic implications or how it differs from other nations' approaches.
+
+**4. Clarity of argument structure**
+
+The paper is generally well-organized, but several sections create confusion. The timeline of UN resolutions is difficult to follow—December 2024, November 2025, February 2026, May 2025 are presented without clear chronological ordering. References to future dates in Section 5 are also unclear about whether they represent projections or actual events. The document's internal dating appears inconsistent, which undermines the analytical clarity.
+
+**5. Missing perspectives**
+
+Several significant gaps stand out. The paper lacks quantitative evidence comparing accident rates between autonomous and human-controlled systems, and doesn't sufficiently examine potential benefits like reduced civilian harm from precision. Non-state actor perspectives and their potential uses of these systems are underdeveloped. The paper also misses the AI autonomy timeline problem—how quickly these capabilities are advancing and whether governance can keep pace. Additionally, the role of commercial AI companies like Clearview AI and their defense applications receives insufficient attention.
+
+**6. Policy relevance**
+
+The three proposed actions (prohibition, meaningful human control definition, UN technical panel) are reasonable but lack adequate discussion of political feasibility and implementation challenges.
+
+**Specific questionable claims:**
+
+1. "Harpy has been exported to China" - This is the most problematic claim, requiring independent verification. References [8] and [9] are manufacturer specs and a blog, which are inadequate sources for such a significant assertion.
+
+2. Reference [10] cites "Brennan Center, 2026" - a future date for a publication that doesn't exist.
+
+3. "AI systems performing at 95% accuracy...degrading to 60-70%" lacks specific academic citation.
+
+4. The "ASN-301 anti-radiation drone" comparison to Harpy lacks sufficient sourcing.
+
+5. "Replicator Initiative...1.8 billion dollars" - needs better sourcing beyond Congressional budget documents.
+
+6. Shield AI valuation figure appears unsourced.
+
+7. The claim about a swarm attacking Hamas militants in May 2021 lacks proper citation to [1], which concerns Libya.
+</think>
+
+# Peer Review: Autonomous Warfare, Strategic Stability, and the Governance Crisis
+
+---
+
+## OVERALL ASSESSMENT
+
+**Score: 4.5/10**
+
+**Verdict: Weak Reject**
+
+---
+
+## SUMMARY
+
+This paper attempts a timely and ambitious synthesis of autonomous weapons governance, technical capabilities, and strategic implications. The ambition is commendable, and the structure is largely sound. However, the submission suffers from significant evidentiary weaknesses, unbalanced treatment of key actors, unresolved chronological inconsistencies, and an over-reliance on policy documents and manufacturer sources for contested operational claims. Several factual assertions lack credible sourcing, and the China analysis is notably thinner than the treatment of U.S. programs despite comparable strategic significance. The paper requires substantial revision before it could meet the evidentiary standards of a top-tier interdisciplinary venue.
+
+---
+
+## DIMENSIONAL CRITICISM
+
+### 1. Factual Accuracy and Source Credibility
+
+**Critical Problems:**
+
+**a) The Harpy Export Claim**
+
+The paper asserts that "The Harpy has been exported to China, India, South Korea, Turkey, and other nations" and claims "Israel formally sold Harpy systems to China" (Section 2.1). These are extraordinary geopolitical claims that would represent a significant transfer of military technology from a U.S. ally to a potential adversary. The sourcing provided—Reference [9], listed as "Drone Strike. IAI Harpy Specifications, 2023"—is wholly inadequate. "Drone Strike" appears to be an industry blog or non-peer-reviewed outlet. Manufacturer specifications cannot substitute for independent verification of export transactions with geopolitical implications.
+
+If the authors cannot provide credible sourcing from defense trade databases (e.g., SIPRI Arms Transfers Database, Congressional Research Service reports on defense trade, or peer-reviewed defense studies), this claim must be excised entirely. The claim about the ASN-301 "similarities" to Harpy fares no better—Reference [9] cannot support a claim about derivation chains.
+
+**b) Future-Dated Publications**
+
+Reference [10] is cited as "Brennan Center. The Business of Military AI, 2026." This date is in the future relative to the paper's implied timeframe. This appears to be either a typographical error or a fundamental citation problem. Brennan Center publications from 2024 or 2025 may exist, but a 2026 citation is unverifiable. This must be corrected before publication.
+
+**c) AI Accuracy Degradation Claims**
+
+The paper states that "AI systems performing at 95 percent accuracy in laboratory settings often degrade to 60-70 percent accuracy in contested electromagnetic environments" (Section 5.3). The supporting citation is Reference [35], "Brundage et al. Toward Trustworthy AI Development," an arXiv preprint. This source does not contain the specific battlefield degradation figures cited. The 20-40 percentage point degradation claim appears nowhere in Brundage et al. (2020), which focuses on malicious attacks and governance mechanisms, not empirical reliability data. The authors have either misattributed this claim or synthesized it from elsewhere without citation. This is a serious evidentiary error that undermines the paper's technical credibility.
+
+**d) The Libya/Lebanon Confusion**
+
+In Section 3.3, the paper claims "A swarm of small Israeli drones located, identified, and attacked Hamas militants in May 2021" and cites Reference [1], the "UN Panel of Experts on Libya. Final Report, S/2021/229, March 2021." The UN Panel of Experts on Libya is concerned with, as the name indicates, Libya—not Israel, Hamas, or Lebanon. This citation is almost certainly erroneous or the claim is incorrectly attributed. The reference should be to a completely different source, likely Israeli defense sources or investigative journalism about the May 2021 Gaza conflict. The conflation of Libya and Israel/Hamas contexts is inexplicable and raises questions about the overall quality of citation verification.
+
+**e) Chronological Inconsistencies**
+
+The paper contains multiple date sequences that are internally contradictory:
+
+- Section 4 opens with UNGA resolutions dated "December 2024," "November 2025," and "February 2026"—but also references the "REAIM Summit in February 2026" before a "May 2025" reference to Secretary-General Guterres. This sequence is impossible; February 2026 cannot precede May 2025.
+- Section 3.5 references a "UK...in 2025" and "EU Parliament...in 2025"—but these appear in the same section with earlier 2024 dates. Without clarification of whether this paper was written prospectively (unusual) or is using placeholder dates (concerning), these inconsistencies suggest a draft that was not carefully assembled.
+
+**Lesser Sourcing Problems:**
+
+- Many claims about specific systems rely on manufacturer specifications (IAI for Harpy/Harop, company websites for Shield AI). Manufacturer data is inherently promotional and cannot substitute for independent technical assessment.
+- The CSET spending estimate for China ("1.6 to 2 billion dollars") is cited but the "significant methodological uncertainty" is vague. What is the actual confidence interval? A range of $1.6-2 billion is a 25% uncertainty band, which may be acceptable for classified topics, but the paper should state explicitly what the source says rather than implying precise figures.
+- Reference [28] "Lieber Institute. Russia Minimalist Vision for LAWS, 2026" is future-dated and requires clarification.
+
+---
+
+### 2. Analytical Rigor
+
+**a) The "Trilemma" Framework**
+
+The paper introduces a "governance trilemma" in Section 5.1, arguing that states cannot simultaneously maximize military effectiveness, legal accountability, and strategic stability. This framing is intuitively appealing but underdeveloped. The trilemma is asserted rather than demonstrated. What is the theoretical basis for treating these as mutually exclusive? Could institutional design allow for satisfying all three simultaneously under certain conditions? The paper would benefit from engaging with institutional design theory and existing literature on trade-offs in arms control (e.g., work by Ruhl, Williams, or broader arms control theory on compliance and effectiveness trade-offs).
+
+**b) Strategic Stability Analysis is Thin**
+
+Section 5.2 on escalation dynamics is the paper's most consequential analytical contribution but is surprisingly brief (approximately 300 words) relative to its importance. The three mechanisms—decision-time compression, entanglement of conventional and nuclear systems, and attribution ambiguity—are listed but not rigorously analyzed. The paper cites Scharre (2018) throughout but does not build substantively on that work. The claim that "autonomous ISR platforms operating near nuclear facilities could be misinterpreted as preparation for a first strike" is plausible but underexplored. What is the actual probability of such misinterpretation? What historical analogies inform this assessment? The 1983 Soviet nuclear false alarm incident (Stanislav Petrov) is relevant here—human judgment prevented catastrophe when automated systems flagged a non-existent nuclear launch—but it is absent from the analysis.
+
+**c) The Verification Problem**
+
+Section 4.1 raises important verification challenges but presents them as relatively binary: hardware attestation is "technically feasible," behavioral monitoring "cannot distinguish," and code review is "politically infeasible." This understates the nuance. Hardware attestation is not merely a matter of physical compromise—it requires trusted execution environments that do not currently exist at scale for military systems. Behavioral monitoring can be more informative than presented, particularly for loitering munitions with signature flight patterns. The analysis should engage with the actual technical literature on runtime verification, formal methods, and anomaly detection rather than offering broad characterizations.
+
+**d) AI Reliability Claims**
+
+As noted above, the specific claim about 95% to 60-70% accuracy degradation is unsourced and appears to be fabricated or misattributed. This is a significant problem because it is used to support the paper's argument that autonomous systems pose unmanageable risks. If the evidentiary basis is weak, the argument collapses. The authors must either provide credible sourcing or soften the claim to something defensible (e.g., citing specific studies on computer vision degradation under adversarial conditions).
+
+---
+
+### 3. Balance and Fairness
+
+**a) China Analysis is Superficial**
+
+The China section (Section 3.2) is notably shorter and less detailed than the U.S. section, despite China being presented as a "major military power" in the abstract and introduction. The authors acknowledge that "China's approach differs fundamentally" but do not adequately explain what "fundamentally" means in operational or analytical terms. Key weaknesses:
+
+- **Doctrine vs. Capability**: The paper cites the "Science of Military Strategy 2020" and Xi's statements as evidence of China's autonomous weapons strategy but does not interrogate the gap between doctrinal aspiration and operational capability. Chinese doctrine often emphasizes concepts that outpace practical implementation. The paper should discuss what evidence exists that China is actually fielding the systems described in its doctrine.
+
+- **The "Five-Criteria" Definition**: The paper notes that China's definition of unacceptable LAWS requires all five criteria simultaneously, which the authors (citing Lieber Institute) characterize as "remarkably narrow." This is accurate, but the paper does not explain why China adopts this position. Is it a negotiating strategy? A genuine ethical position? A stalling tactic? Understanding Beijing's strategic calculus is essential for governance discussions.
+
+- **MCF Effectiveness**: The paper states that "the practical effectiveness of this integration remains debated among analysts" but does not explain the contours of that debate. Is MCF succeeding? Failing? Partially succeeding? This is a significant gap given that MCF is presented as China's primary mechanism for military AI advancement.
+
+- **Missing: China's LAWS Diplomacy**: The paper notes that "Beijing formally supports a binding LAWS treaty when conditions are ripe" but does not discuss China's actual diplomatic positions at the CCW, its interactions with the Non-Aligned Movement, or its relations with Russia on autonomous weapons governance. China abstained or voted against various UNGA resolutions on LAWS—why? The paper cannot simply present this as a box-checking exercise.
+
+**b) Sinophobia vs. Naive Acceptance**
+
+The paper risks both extremes. On one hand, the China section is relatively restrained and avoids Sinophobic tropes. On the other hand, it accepts official Chinese doctrine at face value without sufficient critical analysis of what "intelligentized warfare" means for international stability. The paper would benefit from engaging with critical security studies literature that interrogates how states use doctrine for signaling, deterrence, and coercive purposes—not merely as operational guides.
+
+**c) Russia Analysis**
+
+Russia is treated more briefly than either the U.S. or China, despite being one of the five permanent members of the UN Security Council with nuclear parity and an active participant in the Ukraine conflict. The paper notes Russia's position that "existing international humanitarian law sufficiently applies" but does not engage with the substantive IHL arguments Russia makes. Is Russia's position legally coherent? Does the paper's own logic (the accountability gap) undermine Russia's position? The analysis would be stronger if it engaged with Russian legal scholarship and policy statements directly, rather than dismissing them in a single sentence.
+
+**d) Comparative Balance**
+
+The paper is U.S.-centric in its detailed treatment. The U.S. section (Section 3.1) is approximately 500 words with multiple programs described. The China section is approximately 250 words. For a paper arguing that the governance challenge requires engagement with all major military powers, this imbalance is problematic. If the paper is intended as a U.S.-focused policy analysis, this is acceptable—but the abstract claims global scope.
+
+---
+
+### 4. Clarity of Argument Structure
+
+**Strengths:**
+
+- The conceptual taxonomy (Section 2) is clear and functional. The distinction between human-in-the-loop, human-on-the-loop, and human-out-of-the-loop is well-presented and will be accessible to non-specialist readers.
+- The governance overview (Section 4) provides a useful summary of the UN process, even accounting for chronological inconsistencies.
+- The policy recommendations (Section 6) are concrete and actionable.
+
+**Weaknesses:**
+
+- **Chronological Inconsistencies** (as noted above) create confusion about the paper's temporal scope.
+- **Section 3.5 ("Europe and Other States")** reads as an afterthought. The UK, France, Germany, EU Parliament, South Korea, and Turkey are covered in approximately 250 words—less than a single paragraph per actor. This is insufficient for a "survey" paper.
+- **The Table** (Section 3.6) contains errors and omissions. It does not include China systems beyond Wing Loong II and GJ-11, despite the text mentioning ASN-301. It does not include Russian Lancet/KUB systems despite Section 3.3 discussing them extensively. The table appears to have been prepared separately from the text and not reconciled.
+- **Jargon Inconsistency**: The paper switches between U.S. terminology (attritable, ISR, JADC2) and more accessible language without adequate explanation. For a potentially interdisciplinary audience, terms like "attritable" (which has specific meaning in U.S. procurement but may confuse others) should be defined on first use.
+
+---
+
+### 5. Missing Perspectives and Major Gaps
+
+**a) The Counterfactual Argument**
+
+The paper argues that autonomous weapons pose significant risks to strategic stability and civilian protection, but it does not adequately engage with the counterfactual. What are the risks of *not* deploying autonomous systems? If adversaries deploy them and one side does not, the non-deploying side faces a decisive disadvantage. The paper implicitly assumes that strategic stability requires restraint, but this assumption is contestable. Realist and neoclassical realist scholars would argue that states facing autonomous weapons threats will inevitably deploy them regardless of international law, making the entire governance project uphill against structural pressures. The paper should engage with this counterargument explicitly.
+
+**b) The Empirical Record on Civilian Harm**
+
+The paper asserts that autonomous weapons raise "profound ethical questions" and could "reduce civilian casualties through faster, more precise targeting" (attributed to "proponents"), but does not provide empirical evidence for either claim. What is the actual civilian harm record of existing autonomous systems (Harpy, Harop, Kargu-2)? The UN Panel of Experts on Libya report (Reference [1]) provides relevant evidence about Kargu-2 use in Libya, but the paper does not summarize those findings. The absence of empirical civilian harm data weakens both the ethical arguments and the policy recommendations.
+
+**c) The AI Timeline Problem**
+
+The paper notes that "the window for preemptive governance is closing" but does not rigorously analyze the rate of AI capability advance versus the rate of diplomatic progress. How quickly are capabilities advancing? Is there empirical evidence that governance timelines are inadequate? The paper would benefit from engaging with AI forecasting literature (e.g., work by the Future of Life Institute, Stanford HAI, or the AI Index) to substantiate the "closing window" claim.
+
+**d) Commercial AI and Dual-Use**
+
+The paper focuses on dedicated military AI but does not adequately address how commercial AI advances (large language models, computer vision, robotics) lower the barrier to autonomous weapons development. Section 5.6 touches on proliferation but does not integrate this with the technical discussion. The connection between commercial AI and military autonomous weapons is one of the most significant governance challenges and deserves more systematic treatment.
+
+**e) The Role of Private Military Companies and Defense Startups**
+
+Section 3.1 mentions Shield AI and the emerging class of "defense technology startups," but the broader implications are underdeveloped. How does the involvement of private capital and non-traditional defense firms change the governance challenge? Are these firms subject to the same export controls and accountability mechanisms as traditional primes? The Palantir Maven Smart System contract is mentioned but not analyzed for what it reveals about the changing defense-industrial base.
+
+**f) Human Rights Law vs. International Humanitarian Law**
+
+The paper focuses almost entirely on IHL (international humanitarian law) but mentions in passing that "human dignity...is challenged" by autonomous weapons. Human rights law frameworks—particularly the right to life under Article 6 of the ICCPR and the prohibition of arbitrary deprivation of life—are relevant to domestic regulation and advocacy but are absent from the analysis. The paper would benefit from engaging with human rights institutions (e.g., UN Special Rapporteur on extrajudicial executions) and their positions on autonomous weapons.
+
+---
+
+### 6. Policy Relevance
+
+**Strengths:**
+
+- The policy recommendations (Section 6) are concrete, specific, and actionable. The three requirements for "meaningful human control" (human authorization of target categories, verifiable communication link, immutable logging) represent operationalizable criteria that policymakers can engage with.
+- The recommendation for a UN technical panel modeled on the OPCW process is well-chosen—OPCW provides a useful institutional analogy.
+- The paper correctly identifies the CCW consensus problem as the core governance obstacle.
+
+**Weaknesses:**
+
+- **Feasibility**: The paper acknowledges that each action "faces significant feasibility constraints" but does not adequately analyze what would be required to overcome those constraints. For a policy audience, this is essential. What are the political pathways? Which states are most likely to support the proposed treaty? What role can civil society, industry, or emerging powers play?
+
+- **Enforcement**: The paper does not address enforcement mechanisms. A treaty without enforcement is hollow, as the paper's own analysis of CCW limitations demonstrates. What sanctions or verification mechanisms would make the proposed treaty enforceable?
+
+- **Counterarguments**: The paper does not adequately address the strongest counterarguments to its proposed governance framework. The U.S. and China refused to sign the REAIM declaration—what would motivate them to sign a binding treaty? The paper needs to engage with realist critiques of arms control and explain why this governance project is viable when so many others have failed.
+
+- **Military Necessity Arguments**: The paper does not engage with the arguments made by the U.S., China, and others that autonomous systems are militarily necessary for defense and deterrence. If the paper's audience includes policymakers, it must address the security dilemma dynamics that drive arms racing in autonomous weapons.
+
+---
+
+## SPECIFIC FACTUAL CLAIMS REQUIRING STRONGER SOURCING
+
+1. **"The Harpy has been exported to China"** (Sections 2.1, 3.4): Unsourced and geopolitically extraordinary. Requires SIPRI Arms Transfers Database, CRS reports, or equivalent. If unverified, delete.
+
+2. **"AI systems performing at 95 percent accuracy in laboratory settings often degrade to 60-70 percent accuracy in contested electromagnetic environments"** (Section 5.3): Reference [35] does not support this claim. Requires specific citation to empirical studies.
+
+3. **"A swarm of small Israeli drones located, identified, and attacked Hamas militants in May 2021"** (Section 3.3): Citation [1] (UN Libya Panel) is wrong source. Requires correct attribution.
+
+4. **"The Harpy has hunted radar emissions since 1989"** (Section 2.1, 6): Operational history of Harpy use is not documented in open sources. "Hunted" is a strong verb implying combat deployment. Clarify whether this means "deployed" or "operational in exercises."
+
+5. **"CSET placing the figure [China military AI spending] between 1.6 and 2 billion dollars annually"** (Section 3.2): Requires clarification of confidence intervals and methodology.
+
+6. **"North America commands 44.2 percent of this market, with cumulative spending expected to exceed 120 billion dollars"** (Section 5.1): Market share and spending projections require specific citation to defense market research.
+
+7. **"The Kargu-2, which costs approximately 40,000 dollars per unit"** (Section 5.6): Requires citation to specific source.
+
+8. **"Palantir's Maven Smart System contract, potentially worth 480 million dollars"** (Section 3.1): Verify this figure against CRS or GAO reports.
+
+9. **"The XQ-58A Valkyrie...target unit cost of approximately 3 million dollars"** (Section 3.1): Verify against Air Force budget documents or programmatic sources.
+
+---
+
+## CONCRETE REVISION RECOMMENDATIONS
+
+### Priority 1 (Must Address Before Resubmission)
+
+1. **Verify or delete the Harpy-to-China export claim.** This is the single most consequential factual claim in the paper and the sourcing is wholly inadequate. If it cannot be verified from credible open sources (SIPRI, IISS, CRS), it must be removed.
+
+2. **Correct all chronological inconsistencies.** The paper cannot be evaluated for factual accuracy if its timeline is internally contradictory. Reconcile the UNGA resolution dates, REAIM Summit dates, and EU Parliament dates.
+
+3. **Correct the Libya reference.** The UN Panel of Experts on Libya report does not cover Hamas or Israel. Either find the correct source for the swarm claim or remove it.
+
+4. **Either source the AI accuracy degradation claim or soften it substantially.** If the 95% to 60-70% claim cannot be verified, rewrite it as a qualitative claim about adversarial fragility and cite appropriate sources (e.g., specific computer vision adversarial attack papers).
+
+5. **Future-date publications.** Verify that all citations exist and are correctly dated. Remove or correct [10] (Brennan Center 2026) and [28] (Lieber Institute 2026).
+
+### Priority 2 (Strongly Recommended)
+
+6. **Expand the China section.** The China analysis is the weakest major section and receives disproportionately brief treatment. Add detail on: (a) the gap between doctrine and capability; (b) China's actual CCW diplomacy and voting positions; (c) the debate over MCF effectiveness; (d) Chinese scholars' positions on LAWS governance.
+
+7. **Engage with the counterfactual.** Address explicitly: Why would major powers accept binding constraints on autonomous weapons when doing so might disadvantage them relative to competitors? What incentive structures favor or disfavor governance?
+
+8. **Reconcile the table with the text.** The table omits Lancet/KUB and misrepresents the Chinese systems discussed. Either update the table or remove it.
+
+9. **Add empirical evidence on civilian harm.** Provide whatever evidence exists about civilian harm from Harpy, Harop, Kargu-2, and other deployed systems. If such evidence is lacking, acknowledge this explicitly.
+
+10. **Strengthen the strategic stability analysis.** Expand Section 5.2 with more detailed treatment of crisis stability theory, historical analogies (Petrov incident, Cuban Missile Crisis), and specific scenarios.
+
+### Priority 3 (Would Improve Quality)
+
+11. **Add a discussion of commercial AI and dual-use.** The connection between commercial AI advances and military autonomous weapons proliferation deserves systematic treatment.
+
+12. **Engage with human rights law frameworks** in addition to IHL.
+
+13. **Define "attritable" and other potentially unfamiliar terms** on first use.
+
+14. **Add a paragraph on enforcement mechanisms** for the proposed treaty.
+
+15. **Balance the policy recommendations** with acknowledgment of the political feasibility challenges and realist critiques of arms control.
+
+---
+
+## CONCLUSION
+
+This paper addresses an important and timely topic with a generally clear structure. However, it contains factual claims that cannot be verified from the cited sources, chronological inconsistencies that suggest hasty assembly, an imbalanced treatment of major powers, and an analytical framework that is asserted rather than rigorously demonstrated. The authors have attempted to synthesize a vast literature, but the synthesis needs more careful grounding in evidence.
+
+With substantial revision—particularly the verification and deletion of unsourced claims, correction of chronological errors, expansion of the China section, and strengthening of the empirical basis—the paper could meet the standards of a policy-oriented journal. As submitted, it does not.
+
+I strongly recommend rejection at this time and encourage the authors to revise and resubmit after addressing the Priority 1 items. The topic deserves rigorous treatment, and this paper has the potential to provide it with appropriate revision.
+
+---
+
+**Reviewer Recommendation: Reject (Resubmission Encouraged)**

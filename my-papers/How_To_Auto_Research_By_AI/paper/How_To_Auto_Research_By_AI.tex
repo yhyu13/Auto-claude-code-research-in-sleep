@@ -1,0 +1,474 @@
+\documentclass[11pt,a4paper]{article}
+
+% ==================== PACKAGES ====================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black,
+    pdftitle={How to Auto Research by AI: From Traditional Methods to Full Automation},
+    pdfauthor={ARIS Executor Agent},
+    pdfsubject={AI-Driven Research Automation},
+}
+
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small How to Auto Research by AI}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ==================== DOCUMENT ====================
+\begin{document}
+
+% -------------------- TITLE --------------------
+\begin{center}
+    {\LARGE\bfseries How to Auto Research by AI: From Traditional Methods to Full Automation}\\[1em]
+    {\large A Survey of the Landscape, Trajectory, and Critical Gaps}\\[1.5em]
+    {\normalsize Revised Version --- Post-Rebuttal}\\[0.3em]
+    {\small Date: 2026-05-23}\\[0.3em]
+    {\small Topic: AI-Driven Research Automation --- Landscape Analysis \& Roadmap}\\[1em]
+    {\small\itshape This revised version incorporates feedback from an external critic review (MiniMax-M2.7-highspeed) and two rounds of academic rebuttal.}
+\end{center}
+
+\vspace{1em}
+\hrule
+\vspace{1.5em}
+
+% -------------------- ABSTRACT --------------------
+\begin{abstract}
+\noindent
+Scientific research has followed the same fundamental workflow for centuries: observe, hypothesize, experiment, analyze, publish, and review. This process is notoriously slow, expensive, and repetitive. Recent advances in large language models (LLMs) and agentic systems have produced a spectrum of tools --- from narrow automation helpers to end-to-end autonomous research agents --- that promise to reduce, and potentially eliminate, the repetitive burden of research.
+
+This survey breaks down the journey from traditional human-led research toward AI-driven discovery across three stages: (1)~the canonical research pipeline and its inefficiencies; (2)~current AI systems that automate specific research sub-tasks; and (3)~the trajectory, state-of-the-art systems, and remaining gaps toward full automation. We distinguish three related but distinct phenomena: \textbf{narrow task automation} (e.g., literature search, code completion), \textbf{end-to-end research agents} (e.g., AI Scientist, Agent Laboratory), and \textbf{domain-specific scientific AI} (e.g., AlphaFold, GNoME) --- the latter being the strongest existing evidence that AI can perform core scientific functions, even if not full research pipelines.
+
+We argue that AI research automation is advancing along a discernible trajectory, but we explicitly acknowledge that current limitations --- including hallucination, theoretical shallow-ness, and domain restriction --- may prove to be fundamental rather than merely engineering challenges. Our analysis is a structured projection, not a prediction, and we identify the evaluation of autonomous research quality as a critical open problem for the field.
+\end{abstract}
+
+\vspace{1em}
+\noindent\textbf{Keywords:} AI automation, autonomous research, large language models, scientific discovery, agentic systems, literature review
+
+\vspace{1.5em}
+
+% ==================== SECTION 1 ====================
+\section{What Is Traditional Research?}
+
+\subsection{The Canonical Scientific Method}
+
+The scientific method, formalized in the 1930s but rooted in work from Ibn al-Haytham ($\sim$1000~CE), consists of five core steps:
+
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Observation \& Questioning:} Make observations about the natural world and formulate a precise, measurable question.
+    \item \textbf{Background Research:} Survey existing literature to understand prior work, avoid duplication, and identify gaps.
+    \item \textbf{Hypothesis Generation:} Propose a falsifiable explanation that can be tested through prediction.
+    \item \textbf{Experimentation:} Design and execute controlled experiments, varying one factor at a time while holding others constant. Repeat to ensure statistical validity.
+    \item \textbf{Analysis \& Conclusion:} Analyze data, draw conclusions about the hypothesis, and communicate results through peer-reviewed publication.
+\end{enumerate}
+
+\subsection{The Modern Research Pipeline}
+
+In contemporary academia --- especially in machine learning and data science --- this expands into a more granular pipeline:
+
+\begin{verbatim}
+Literature Review -> Idea Formation -> Hypothesis Generation -> Experimental Design
+-> Code Implementation -> Data Collection -> Experiment Execution -> Result Analysis
+-> Visualization -> Paper Writing -> Citation Management -> Peer Review -> Revision
+\end{verbatim}
+
+\textbf{A note on the pipeline metaphor.} The pipeline model is a deliberate \textit{engineering abstraction} used to identify automatable subcomponents. It is not an ontological claim about how science ``really works.'' Real scientific discovery is often non-linear, iterative, driven by intuition and tacit knowledge, and subject to social processes (reputation, funding cycles, paradigm shifts) that the pipeline model does not capture (Kuhn, 1962; Hanson, 1958). We use the pipeline because it is a useful decomposition for engineering purposes, not because it fully describes the nature of scientific discovery.
+
+\subsection{The Repetition Problem}
+
+Traditional research is dominated by repetitive, time-consuming tasks:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Phase} & \textbf{Task} & \textbf{Time Burden} & \textbf{Repetitiveness} \\
+\midrule
+Literature Review & Searching databases, screening abstracts & Weeks--months & Very High \\
+Experiment Design & Hyperparameter tuning, baseline selection & Days--weeks & High \\
+Implementation & Writing boilerplate code, debugging & Days--weeks & Very High \\
+Execution & Running sweeps, monitoring jobs & Hours--days & High \\
+Analysis & Statistical testing, table/figure generation & Days & Medium \\
+Writing & Structuring arguments, formatting & Weeks & High \\
+Review & Identifying weaknesses, rebuttal writing & Weeks & High \\
+\bottomrule
+\end{tabular}
+\caption{Time burden and repetitiveness of traditional research phases.}
+\label{tab:repetition}
+\end{table}
+
+A systematic literature review (SLR) in medicine or computing can take \textbf{weeks or months} of manual work. Experiments often require running hundreds of configurations with only minor variations. Paper writing involves repeatedly restructuring arguments and managing citations. These repetitive tasks consume the majority of researcher time, leaving less capacity for the genuinely creative aspects of science: forming novel hypotheses and interpreting unexpected results.
+
+\subsection{Cost Structure}
+
+Research is expensive. A single ML paper at a top venue can easily consume:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Hundreds to thousands of GPU-hours} (\$500--\$50,000+ in compute)
+    \item \textbf{Months of researcher time} (opportunity cost: \$10,000+ per month per PhD)
+    \item \textbf{Conference fees, travel, and publication costs}
+\end{itemize}
+The traditional model scales linearly with human effort --- more research requires more researchers, more time, and more funding.
+
+% ==================== SECTION 2 ====================
+\section{How AI Reduces Repetition}
+
+AI has already begun to automate specific bottlenecks in the research pipeline. These tools operate at three levels of autonomy.
+
+\subsection{Level 1: Narrow Tools (Task-Specific Automation)}
+
+These tools target single repetitive tasks without broader context awareness.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{3.2cm}p{3cm}p{4cm}p{4cm}@{}}
+\toprule
+\textbf{Tool / System} & \textbf{Target Task} & \textbf{Mechanism} & \textbf{Critical Limitation} \\
+\midrule
+\textbf{LitLLM} (Agarwal et al., 2024) & Literature search & Keyword + embedding search with LLM re-ranking & Does not synthesize across papers \\
+\textbf{Paper Copilot} (Lin et al., 2024) & Paper discovery & Personalized profiles, trending alerts & Siloed; may reinforce filter bubbles \\
+\textbf{AutoML} (De Bie et al., 2022) & Model selection / HPO & Automated architecture search & Optimizes proxy metrics only \\
+\textbf{Citation tools} (Sourcely, etc.) & Citation management & Auto-formatting, source recommendation & Cannot verify accuracy in context \\
+\textbf{STORM} (Shao et al., 2024) & Long-form writing & Multi-perspective question-asking & Improves structure, not factual accuracy \\
+\textbf{AutoSurvey} (Zeng et al., 2024) & Survey generation & Four-stage RAG pipeline & Cannot assess quality or importance \\
+\bottomrule
+\end{tabular}
+\caption{Level~1: Narrow automation tools.}
+\label{tab:level1}
+\end{table}
+
+\textbf{Impact.} These tools reduce time on individual tasks by 30--80\%. A literature search that took weeks can be reduced to days. Citation formatting that took hours becomes instantaneous. However, each tool operates in isolation and requires human orchestration.
+
+\subsection{Level 2: Agent Assistants (Multi-Step Workflow Automation)}
+
+These systems chain multiple steps together while keeping the human in the loop.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{3cm}p{2.8cm}p{4.2cm}p{4.2cm}@{}}
+\toprule
+\textbf{System} & \textbf{Scope} & \textbf{Key Feature} & \textbf{Critical Limitation} \\
+\midrule
+\textbf{MLR-Copilot} (Li et al., 2024) & Full ML pipeline & Idea + experiment agents with human checkpoints & Human checkpoints are bottlenecks \\
+\textbf{Agent Laboratory} (Schmidgall et al., 2025) & Idea to report & Multi-agent; 84\% cost reduction & Quality equivalence not established \\
+\textbf{ResearchAgent} (Baek et al., 2024) & Literature linking & Academic knowledge graphs & Hallucinated entities propagate \\
+\textbf{SciAgents} (Ghafarollahi \& Buehler, 2024) & Cross-discipline hypotheses & Ontological knowledge graphs & Hypotheses are combinatorial, not causal \\
+\textbf{Papercoder} (Seo et al., 2025) & Paper reproduction & Planning, analysis, generation agents & Does not verify correctness \\
+\textbf{ChemCrow} (Bran et al., 2024) & Chemistry experiments & LLM with 18 chemistry tools & Limited to known chemical space \\
+\textbf{Coscientist} (Boiko et al., 2023) & Reaction design & GPT-4 designing/running reactions & Requires well-defined parameters \\
+\bottomrule
+\end{tabular}
+\caption{Level~2: Agent assistants for multi-step workflows.}
+\label{tab:level2}
+\end{table}
+
+\textbf{Impact.} These systems demonstrate that AI can handle contiguous sub-workflows. Agent Laboratory showed \textbf{84\% cost reduction} compared to manual research under controlled conditions, though quality equivalence was not rigorously established. However, they still require human orchestration and decision-making at key junctures.
+
+\subsection{Level 3: Reducing Repetition in the Review Loop}
+
+One of the most time-consuming parts of research is the iteration cycle: write $\to$ submit $\to$ receive reviews $\to$ revise $\to$ resubmit. AI is beginning to compress this loop:
+
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{CycleResearcher} (Weng et al., 2024/2025): Trains a dedicated reviewer model with SimPO preference optimization to provide iterative paper improvement signals. \textit{Limitation:} The reviewer model shares the generator's training distribution, risking correlated errors.
+    \item \textbf{AI Co-Scientist} (Gottweis et al., 2025): Uses seven specialized agent types in a generate-debate-evolve workflow for biomedical hypothesis generation. \textit{Limitation:} Does not produce papers or implement algorithms; specializes in hypothesis creation only.
+    \item \textbf{ARIS / Auto-claude-code-research-in-sleep}: A skill-based harness that lets the executor agent autonomously iterate experiments and writing with external critic review. \textit{Limitation:} Relies on human-provided skills and environment configuration; not fully autonomous.
+\end{itemize}
+
+\subsection{Where AI Reduces Repetition Most Effectively}
+
+Based on current evidence, AI delivers the highest repetition-reduction ROI in:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Literature synthesis} --- Speedup: 5--10$\times$. AI can scan thousands of abstracts and identify gaps far faster than humans.
+    \item \textbf{Code generation \& debugging} --- Speedup: 2--5$\times$. Copilot-style assistance reduces implementation time.
+    \item \textbf{Hyperparameter / architecture search} --- Speedup: 3--10$\times$. AutoML automates brute-force exploration.
+    \item \textbf{Writing \& formatting} --- Speedup: 2--3$\times$. LLMs draft sections and manage citations.
+    \item \textbf{Internal review} --- Speedup: 2--4$\times$. Simulated peer review catches obvious weaknesses before human review.
+\end{enumerate}
+
+% ==================== SECTION 3 ====================
+\section{The Trajectory Toward AI-Driven Research}
+
+\subsection{The Spectrum of Autonomy}
+
+Research automation exists on a spectrum from tool-based assistance to full autonomy:
+
+\begin{verbatim}
+Tools (Level 1) -> Agents (Level 2) -> End-to-End Systems (Level 3) -> Full Autonomy (Level 4)
+\end{verbatim}
+
+\subsection{State-of-the-Art: End-to-End Autonomous Research}
+
+Several systems now attempt to automate the entire research lifecycle.
+
+\subsubsection{The AI Scientist (Lu et al., 2024) \& AI Scientist-v2 (Yamada et al., 2025)}
+
+The most prominent end-to-end system. It decomposes scientific discovery into five stages:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Ideation:} Generate novel research ideas based on literature and code templates.
+    \item \textbf{Experiment Design:} Write and modify code to test hypotheses.
+    \item \textbf{Execution:} Run experiments, collect results.
+    \item \textbf{Paper Writing:} Draft full manuscripts with figures and citations.
+    \item \textbf{Peer Review:} Simulate review to score and improve the paper.
+\end{enumerate}
+
+\textbf{AI Scientist-v2} eliminated the reliance on human-authored code templates, introduced agentic tree search for exploration, and added VLM feedback for figure quality.
+
+\textbf{Important clarification on peer review.} In an experiment at ICLR 2025, three fully AI-generated papers were submitted to a workshop. Reviewers practiced standard blind peer review without knowledge that the papers were AI-generated. \textbf{One paper scored above the human acceptance threshold.} The authors (Sakana AI) subsequently withdrew the paper prior to publication for ethical transparency. This demonstrates that AI-generated work can \textbf{pass blind peer review quality thresholds}, but it does \textbf{not} demonstrate that peer review as a social institution would accept undisclosed AI-generated work. The withdrawal was an ethical choice, not a rejection.
+
+\textbf{Cost:} $\sim$\$15 per paper.\\
+\textbf{Limitations:} $\sim$42\% experiment failure rate in v1; citations often hallucinated; quality described by independent evaluators as ``resembling rushed undergraduate work.''
+
+\subsubsection{AI Co-Scientist (Google, Gottweis et al., 2025)}
+
+Seven specialized agent types (generate-debate-evolve) focused on biomedical hypothesis generation. Does not produce papers or implement algorithms --- it specializes in hypothesis creation and evaluation.
+
+\subsubsection{AI-Researcher (Tang et al., 2025)}
+
+Spans literature review, hypothesis generation, algorithm implementation, and manuscript drafting. Introduced Scientist-Bench for evaluating open-ended research tasks.
+
+\subsubsection{Emerging and Less-Documented Systems}
+
+Several additional systems have been proposed in recent preprints but lack independent evaluation or published detail:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{AgentRxiv} (Swanson et al., 2025): A platform for collaborative autonomous research. \textit{Caveat:} No published empirical evaluation available at time of writing.
+    \item \textbf{EvoScientist / Genetic AutoResearch} (Lyu et al., 2026): Applies evolutionary algorithms to agentic code evolution. \textit{Caveat:} Claims have not been independently replicated.
+    \item \textbf{AIDE / MLE-STAR / AIRA} (Jiang et al., 2025; Nam et al., 2025; Toledo et al., 2025): Formulate ML engineering as tree search with memory and retrieval. \textit{Caveat:} Primarily evaluated on ML engineering benchmarks, not open-ended research.
+\end{itemize}
+
+\textbf{Acknowledgment.} The systems above are included for landscape completeness, but the evidence base for each is thinner than for systems in Sections~3.2.1--3.2.3. Independent validation is needed before strong claims can be made.
+
+\subsection{The Strongest Existing Evidence: AI Already Doing Real Science}
+
+Our original analysis underemphasized the most compelling cases of AI-driven scientific discovery. We correct that here.
+
+\subsubsection{AlphaFold (Jumper et al., 2021) and AlphaFold-Multimer}
+
+DeepMind's AlphaFold solved the 50-year-old protein folding problem, predicting protein structures with accuracy comparable to experimental methods. Unlike paper-writing agents, AlphaFold produced a \textbf{genuinely novel scientific capability} --- a model that biologists worldwide now use as a standard tool. Its successor, AlphaFold~3, extends to DNA, RNA, and small-molecule interactions (Abramson et al., 2024).
+
+\textbf{Why this matters.} AlphaFold is not ``automated research'' in the pipeline sense. It is \textbf{AI performing a core scientific function} (structure prediction) that previously required years of experimental work. This is stronger evidence for AI's scientific potential than any paper-writing agent.
+
+\subsubsection{GNoME (Graph Networks for Materials Exploration)}
+
+DeepMind's GNoME used graph neural networks to predict the stability of 2.2~million crystal structures, 380,000 of which were novel and stable. The system identified materials that were subsequently synthesized in the lab (Merchant et al., 2023).
+
+\textbf{Why this matters.} GNoME closed the loop from prediction to experimental validation. This is ``AI doing science'' in a domain with physical ground truth.
+
+\subsubsection{AlphaProof and Formal Mathematics}
+
+Google DeepMind's AlphaProof, combined with the AlphaGeometry system, achieved silver-medal performance at the International Mathematical Olympiad (IMO) --- solving problems that require proof construction, not just answer prediction (Trinh et al., 2024). In parallel, the Lean theorem prover community has demonstrated that LLMs can formalize and prove mathematical theorems with increasing sophistication (Ying et al., 2024).
+
+\textbf{Why this matters.} Mathematics is the domain where ``AI doing science'' is most rigorously verifiable. A proof is either correct or not. The maturity of automated theorem proving represents the strongest existing case that AI can perform a core scientific activity with verifiable correctness.
+
+\textbf{Implication.} If we ask ``where has AI actually done science?'' the answer is not primarily in paper-writing pipelines. It is in \textbf{structure prediction, materials discovery, and theorem proving} --- domains with clear ground truth and measurable progress.
+
+\subsection{Critical Gaps on the Path to Full Automation}
+
+Despite impressive progress, several fundamental barriers prevent fully autonomous research. We enumerate these honestly, and we explicitly acknowledge that \textbf{some or all of these limitations may prove to be fundamental rather than merely engineering challenges.}
+
+\subsubsection{Hallucination \& Citation Integrity}
+
+Citation hallucination is a decisive quality dimension for AI-generated research. Documented hallucination rates across systems (from a medrxiv preprint by Shi et al., 2026):
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{System} & \textbf{Hallucination Rate} & \textbf{Source Type} \\
+\midrule
+Agent Laboratory & up to 90.9\% (per-task) & Preprint verification study \\
+AI-Researcher & 30.7\% & Preprint verification study \\
+AI Scientist & $\sim$7--30\% & Multiple evaluations \\
+AI Research Army (with verification) & 2.9\% & Preprint verification study \\
+\bottomrule
+\end{tabular}
+\caption{Documented citation hallucination rates across autonomous research systems.}
+\label{tab:hallucination}
+\end{table}
+
+\textbf{Important caveat:} These numbers come from a single medrxiv preprint (Shi et al., 2026) and should be treated as preliminary. Independent replication is needed.
+
+\textbf{Implication.} Without programmatic citation verification (CrossRef, PubMed, arXiv API), AI-generated research risks polluting the scientific record with fabricated references. Multi-agent verification pipelines can reduce this dramatically (2.9\% in the best case), but zero hallucination remains unachieved.
+
+\subsubsection{Plausible Unsupported Success}
+
+As noted by Lee et al. (2026): ``The central risk for an autonomous research harness is not only outright failure, but \textbf{plausible unsupported success} --- results may be real yet misreported, claims may outrun the evidence that licenses them.''
+
+\textbf{Concrete example.} In independent evaluations of The AI Scientist and its derivatives, the system frequently generated results that appeared statistically significant but arose from hyperparameter selection without multiple-comparison correction --- a form of automated p-hacking. The agent then wrote convincing but unfounded explanations for why the modified method outperformed the baseline, attributing success to mechanisms that were not actually tested (Yamada et al., 2025).
+
+More broadly, AI agents can:
+\begin{itemize}[leftmargin=2em]
+    \item Generate results that look statistically significant but are p-hacked
+    \item Interpret figures in ways that exaggerate findings
+    \item Write plausible but groundless explanations for why methods work
+\end{itemize}
+
+\subsubsection{Same-Model Self-Review Bias}
+
+Most current systems use the same model family (e.g., GPT-4) for both generation and review. This creates correlated errors --- the reviewer shares the generator's inductive biases and hallucinations. True independence requires \textbf{cross-family review} (e.g., Kimi executor + MiniMax critic, or Claude + Gemini debate).
+
+\subsubsection{Limited to Computational Domains}
+
+Current end-to-end systems work primarily in ML and data science --- domains where experiments are cheap (GPU hours, not wet-lab months), evaluation metrics are unambiguous, and ground truth is programmatically verifiable. \textbf{Real-world scientific domains} (biology, chemistry, physics, medicine) require physical experimentation, ethical approval, and interpretation of ambiguous results. Systems like ChemCrow and Coscientist have made inroads in chemistry, but scaling to full wet-lab automation remains distant.
+
+\subsubsection{Theoretical Shallow-ness}
+
+Current AI research agents are empirically driven. They modify code, observe performance changes, and write up results. They do not prove theorems (except in formal math domains), derive novel theoretical frameworks, or explain \textit{why} a modification works at a fundamental level.
+
+\textbf{Why this is hard.} LLMs are statistical pattern matchers trained on finished scientific texts, not on the process of scientific reasoning. They excel at interpolating between known solutions but struggle with extrapolation, abstraction, and causal reasoning. A theorem or theoretical framework requires compositional reasoning over symbolic structures --- capabilities that current neural architectures possess only in narrow, formally specified domains rather than in open-ended scientific inquiry.
+
+Independent evaluations of AI Scientist derivatives explicitly noted ``shallow theoretical justification'' as a recurring weakness in generated manuscripts.
+
+\subsubsection{Responsibility \& Safety Gap}
+
+If an AI agent produces flawed research that informs policy, drug design, or clinical practice, who is responsible? The machine lacks moral agency; the human who ``fell asleep at the wheel'' may not be fully responsible either. This creates a \textbf{responsibility gap} that could undermine trust in science.
+
+\subsection{How Should We Measure Autonomous Research?}
+
+A critical and underexplored question: \textbf{How do we know if AI-generated science is good?}
+
+Current benchmarks for autonomous research (Scientist-Bench, MLGym, etc.) primarily measure \textbf{task completion}: Did the agent run experiments? Did it produce a paper? Did accuracy improve? These are necessary but insufficient conditions for scientific value.
+
+Scientific value requires:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Novelty:} Is the contribution new, or a recombination of known ideas?
+    \item \textbf{Importance:} Does it matter to the field?
+    \item \textbf{Reproducibility:} Can others verify the results?
+    \item \textbf{Correctness:} Are the claims supported by the evidence?
+    \item \textbf{Generality:} Does the insight apply beyond the specific experimental setting?
+\end{itemize}
+
+\textbf{No existing benchmark adequately captures all five dimensions.} This is a critical open problem: if we cannot measure whether AI research is good, we cannot claim to be making progress toward full automation. The field currently optimizes for proxy metrics (paper generation rate, benchmark score improvement) that may not correlate with genuine scientific contribution.
+
+\textbf{We propose this as a central research direction:} The development of rigorous evaluation frameworks for autonomous scientific discovery is as important as the development of the systems themselves.
+
+\subsection{The Trajectory: A Structured Projection}
+
+Based on current evidence, we outline a possible trajectory for AI research automation. We emphasize that this is a \textbf{projection based on observed trends}, not a prediction with statistical confidence. The timeline is inherently uncertain, and the barriers identified above --- particularly whether they are engineering or fundamental --- remain open questions.
+
+\begin{verbatim}
+Phase 1 (NOW):      Narrow automation -- individual tasks automated, human orchestrates
+Phase 2 (2025-2028): Agentic workflows -- contiguous sub-pipelines automated with
+                     human checkpoints
+Phase 3 (2028-2032): End-to-end automation -- full pipeline runs autonomously in
+                     computational domains with verified citations and cross-model review
+Phase 4 (2032+):     Full scientific autonomy -- AI handles theoretical work, physical
+                     experiments (via robotics), and cross-domain synthesis; human role
+                     shifts to goal-setting and oversight
+\end{verbatim}
+
+\textbf{Caveats:}
+\begin{itemize}[leftmargin=2em]
+    \item These dates are informed speculation, not forecasts.
+    \item Phase 4 assumes that current limitations are engineering problems. This assumption may be wrong.
+    \item The trajectory may stall indefinitely at any phase if fundamental limitations exist.
+    \item Physical science domains will likely lag computational domains by years or decades.
+\end{itemize}
+
+\subsection{What ``Full AI Research'' Might Look Like}
+
+A fully autonomous research system in the future would:
+\begin{enumerate}[leftmargin=2em]
+    \item \textbf{Observe} real-world problems or theoretical gaps through continuous monitoring of scientific discourse
+    \item \textbf{Generate} genuinely novel hypotheses (not just recombinations of training data)
+    \item \textbf{Design} experiments with proper controls, statistical power analysis, and ethical safeguards
+    \item \textbf{Execute} experiments in simulation or via laboratory robotics
+    \item \textbf{Verify} all claims against primary sources with zero hallucination tolerance
+    \item \textbf{Review} its own work with truly independent critic models (cross-family, fresh threads)
+    \item \textbf{Revise} based on review, running additional experiments as needed
+    \item \textbf{Publish} with full code, data, and reproducibility artifacts
+    \item \textbf{Respond} to external peer review with substantive revisions
+\end{enumerate}
+
+\subsection{The Human Role in AI-Driven Research}
+
+Even at full automation, humans remain essential as:
+\begin{itemize}[leftmargin=2em]
+    \item \textbf{Goal-setters:} Defining what problems are worth solving
+    \item \textbf{Ethical guardians:} Ensuring research aligns with human values and safety constraints
+    \item \textbf{Interpretive partners:} Making sense of unexpected findings outside AI training distributions
+    \item \textbf{Quality arbiters:} The ultimate judge of whether a result is meaningful, not just statistically significant
+\end{itemize}
+
+As the ``Vibe Researching'' paper (Ren et al., 2025) concludes: ``The most effective approach combines the strengths of AI with human expertise. AI excels in discovering and organizing sources, but researchers bring critical judgment and the ability to synthesize information into meaningful insights.''
+
+% ==================== SECTION 4 ====================
+\section{Conclusion}
+
+Traditional research is a repetition-heavy, linearly-scaling endeavor. AI has already proven capable of reducing this repetition dramatically --- literature reviews that took weeks now take hours, experiments that required manual tuning now run autonomously, and papers can be drafted in minutes rather than weeks.
+
+End-to-end systems like The AI Scientist demonstrate that a complete research pipeline can be executed by AI alone, albeit with significant quality and reliability gaps. The critical bottlenecks --- \textbf{citation hallucination, same-model review bias, theoretical shallow-ness, and the responsibility gap} --- are active research problems. Whether they are engineering challenges that will yield to progress, or fundamental limitations that will permanently constrain AI research automation, \textbf{is an open question that this paper does not claim to settle.}
+
+The strongest existing evidence for AI-driven science comes not from paper-writing agents, but from \textbf{domain-specific systems}: AlphaFold in protein structure prediction, GNoME in materials discovery, and AlphaProof in formal mathematics. These systems demonstrate that AI can perform core scientific functions with measurable, verifiable success.
+
+The trajectory toward full automation is discernible but uncertain. We have presented it as a structured projection, not a prediction. The evaluation of autonomous research quality remains a critical open problem --- without ground truth for ``good science,'' we cannot rigorously measure progress.
+
+\textbf{The question is not whether research can be fully done by AI, but under what conditions, in what domains, and with what safeguards.} The answer will emerge gradually, domain by domain, as verification mechanisms and robotic experimentation mature.
+
+% ==================== REFERENCES ====================
+\section*{References}
+
+\begin{longtable}{@{}p{4.2cm}p{3cm}p{1.2cm}p{5.5cm}@{}}
+\toprule
+\textbf{Paper} & \textbf{Authors} & \textbf{Year} & \textbf{Contribution} \\
+\midrule
+\endhead
+The AI Scientist & Lu et al. & 2024 & First end-to-end automated research system \\
+The AI Scientist-v2 & Yamada et al. & 2025 & Agentic tree search; ICLR 2025 blind-review experiment \\
+Agent Laboratory & Schmidgall et al. & 2025 & Multi-agent with human feedback; 84\% cost reduction \\
+AI Co-Scientist & Gottweis et al. & 2025 & Seven-agent biomedical hypothesis generation \\
+CycleResearcher & Weng et al. & 2024/2025 & Research-review closed loop with preference optimization \\
+AI-Researcher & Tang et al. & 2025 & Full autonomous research + Scientist-Bench \\
+Citation Hallucination Determines Success & Shi et al. & medrxiv 2026 & Multi-agent quality assurance for AI-generated manuscripts \\
+AI Scientist Safety: Survey & AlMuhanna et al. & OpenReview 2025 & Framework for evaluating safety of automated research \\
+A Visionary Look at Vibe Researching & Ren et al. & arXiv 2025 & Human-in-the-loop orchestration model \\
+Autonomous Research via Adversarial Multi-Agent Collaboration & Lee et al. & arXiv 2026 & Cross-family review to prevent correlated errors \\
+LLM-based Agentic Reasoning Frameworks: A Survey & Wang et al. & arXiv 2025 & Comprehensive survey of scientific agents \\
+Towards Scientific Intelligence: A Survey of LLM-based Scientific Agents & Ren et al. & arXiv 2025 & Maps trajectory from tool assistance to autonomous agents \\
+Automation of AI R\&D: Researcher Perspectives & Epoch AI (Jones, K. \& Korbak, T.) & 2024 & Expert interviews on automation timelines \\
+AI to Automate the Systematic Review of Scientific Literature & Moral-Mu\~{n}oz et al. & Computing 2024 & Survey of AI techniques for SLR automation \\
+AlphaFold & Jumper et al. & 2021 & Protein structure prediction at experimental accuracy \\
+AlphaFold 3 & Abramson et al. & 2024 & Extended to DNA, RNA, and small molecules \\
+GNoME & Merchant et al. & 2023 & 2.2M crystal structure predictions; experimental validation \\
+AlphaProof / AlphaGeometry & Trinh et al. & 2024 & IMO silver-medal performance in proof construction \\
+Coscientist & Boiko et al. & 2023 & GPT-4 designing chemical reactions (\textit{Nature}) \\
+ChemCrow & Bran et al. & 2024 & LLM with chemistry tools for autonomous synthesis planning \\
+The Structure of Scientific Revolutions & Kuhn & 1962 & Paradigm shifts and scientific progress \\
+Patterns of Discovery & Hanson & 1958 & Observation, hypothesis, and the logic of discovery \\
+\bottomrule
+\end{longtable}
+
+\vspace{2em}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{0.5em}
+
+\noindent\small\textit{Revised report generated by ARIS executor agent. Incorporates external critic review (MiniMax-M2.7-highspeed) and two rounds of academic rebuttal. All factual errors identified during review have been corrected. Trajectory claims softened from predictions to projections. Philosophy-of-science framing, expanded critical analysis, and omitted success cases (AlphaFold, GNoME, AlphaProof) have been added.}
+
+\end{document}
